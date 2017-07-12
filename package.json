@@ -1,0 +1,17 @@
+{
+  "name": "send-promised",
+  "version": "0.0.0",
+  "license": "MIT",
+  "repository": "juliangruber/send-promised",
+  "description": "Handy promise wrapper around the send static file server",
+  "scripts": {
+    "test": "prettier-standard *.js && standard"
+  },
+  "devDependencies": {
+    "prettier-standard": "^6.0.0",
+    "standard": "^10.0.2"
+  },
+  "dependencies": {
+    "send": "^0.15.3"
+  }
+}
