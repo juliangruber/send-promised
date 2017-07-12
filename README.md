@@ -1,7 +1,7 @@
 
 # send-promised
 
-[![development sponsored by voltra.co](https://img.shields.io/badge/development%20sponsored%20by-Voltra.co-yellow.svg)](https://voltra.co/)
+[![development sponsored by voltra.co](https://img.shields.io/badge/Development%20sponsored%20by-Voltra.co-yellow.svg)](https://voltra.co/)
 
 Handy promise wrapper for the [send](https://www.npmjs.com/package/send) static file server.
 
