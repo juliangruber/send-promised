@@ -14,9 +14,10 @@ use it as the first part of your http handler function.
 const send = require('send-promised')
 const http = require('http')
 
-const serve = send({
-  root: `${__dirname}/static` // and other options for `send`
-})
+const serve = (req, res) =>
+  send({
+    root: `${__dirname}/static` // and other options for `send`
+  })
 
 http.createServer(async (req, res) => {
   const served = await serve(req, res)

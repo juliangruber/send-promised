@@ -3,9 +3,14 @@
 const send = require('send')
 const { parse } = require('url')
 
-module.exports = opts => (req, res, _opts = {}) =>
-  new Promise((resolve, reject) => {
-    send(req, parse(req.url).pathname, Object.assign({}, opts, _opts))
+const serve = (req, res, opts = {}) => {
+  if (!res) {
+    opts = req
+    return (req, res, _opts) => serve(req, res, Object.assign({}, opts, _opts))
+  }
+
+  return new Promise((resolve, reject) => {
+    send(req, parse(req.url).pathname, opts)
       .on('error', err => {
         if (err.code !== 'ENOENT') return reject(err)
         resolve(false)
@@ -13,3 +18,6 @@ module.exports = opts => (req, res, _opts = {}) =>
       .on('end', () => resolve(true))
       .pipe(res)
   })
+}
+
+module.exports = serve
